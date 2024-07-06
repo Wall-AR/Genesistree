@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 🌳 Árvore Genealógica Interativa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Versão](https://img.shields.io/badge/versão-1.0.0-blue.svg)
+![Licença](https://img.shields.io/badge/licença-MIT-green.svg)
 
-## Available Scripts
+Bem-vindo ao projeto Árvore Genealógica Interativa! Este é um aplicativo web moderno e intuitivo para criar e visualizar árvores genealógicas de forma atraente e fácil de usar.
 
-In the project directory, you can run:
+## 👨‍💻 Criador
 
-### `npm start`
+**Wall Rodrigues**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Wall%20Rodrigues-blue.svg)](https://www.linkedin.com/in/wallace-rodrigues-96a7aa26a/)
+[![GitHub](https://img.shields.io/badge/GitHub-WallRodrigues-black.svg)](https://github.com/Wall-AR)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Sobre o Projeto
 
-### `npm test`
+Este projeto nasceu da paixão por história familiar e tecnologia. O objetivo é criar uma ferramenta intuitiva e visualmente atraente para que as pessoas possam mapear, explorar e compartilhar suas histórias familiares.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Características principais:
 
-### `npm run build`
+- 📱 Design responsivo para uso em desktop e dispositivos móveis
+- 🖱️ Navegação interativa e zoom suave
+- 👪 Visualização detalhada de membros da família
+- 🔗 Conexões claras entre gerações
+- 📸 Suporte para fotos de família
+- 📊 Informações detalhadas sobre cada membro
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React.js
+- CSS3
+- HTML5
+- JavaScript (ES6+)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔮 Ideias Futuras
 
-### `npm run eject`
+Estamos sempre pensando em maneiras de melhorar e expandir o projeto. Aqui estão algumas ideias para o futuro:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Importação/Exportação de Dados**: Permitir que os usuários importem dados de outros formatos de árvore genealógica e exportem seus dados.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Linha do Tempo Interativa**: Adicionar uma visualização de linha do tempo para ver a história da família ao longo dos anos.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Storytelling**: Funcionalidade para adicionar histórias e anedotas a cada membro da família.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Integração de DNA**: Permitir a integração de resultados de testes de DNA para enriquecer a árvore genealógica.
 
-## Learn More
+5. **Colaboração em Tempo Real**: Permitir que vários membros da família editem a árvore simultaneamente.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. **IA para Sugestões**: Implementar inteligência artificial para sugerir conexões e preencher informações faltantes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+7. **Realidade Aumentada**: Criar uma versão em AR da árvore para uma experiência imersiva.
 
-### Code Splitting
+8. **Impressão Personalizada**: Oferecer a opção de criar versões impressas personalizadas da árvore genealógica.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🤝 Como Contribuir
 
-### Analyzing the Bundle Size
+Contribuições são sempre bem-vindas! Se você tem uma ideia para melhorar este projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Faça um fork do projeto
+2. Crie uma nova branch (`git checkout -b feature/AmazingFeature`)
+3. Faça commit das suas alterações (`git commit -m 'Add some AmazingFeature'`)
+4. Faça push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-### Making a Progressive Web App
+## 📜 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para detalhes.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feito com ❤️ por Wall Rodrigues
