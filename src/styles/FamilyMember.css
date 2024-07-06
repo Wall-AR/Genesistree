@@ -1,0 +1,45 @@
+.family-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .family-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .family-member.large {
+    width: 300px;
+  }
+  
+  .member-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .family-member.large .member-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .member-info {
+    text-align: center;
+  }
+  
+  .member-info h3 {
+    margin: 0 0 5px 0;
+  }
+  
+  .member-info p {
+    margin: 2px 0;
+    font-size: 14px;
+  }
