@@ -1,78 +1,136 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FamilyMember from './FamilyMember';
+import EditMember from './EditMember';
 import familyData from '../data/familyData';
 import '../styles/FamilyTree.css';
 
 const FamilyTree = () => {
   const [selectedMember, setSelectedMember] = useState(null);
-  const [showSpouse, setShowSpouse] = useState(true);
+  const [focusedMember, setFocusedMember] = useState(null);
+  const [editingMember, setEditingMember] = useState(null);
+  const [zoom, setZoom] = useState(1);
+  const treeRef = useRef(null);
 
   const handleMemberClick = (member) => {
-    setSelectedMember(member);
-    setShowSpouse(true);
-  };
-
-  const handleSpouseToggle = () => {
-    setShowSpouse(!showSpouse);
-  };
-
-  const renderFamilyTree = () => {
-    if (!selectedMember) {
-      return (
-        <div className="family-grid">
-          {familyData.members.map((member) => (
-            <FamilyMember
-              key={member.id}
-              member={member}
-              onClick={() => handleMemberClick(member)}
-            />
-          ))}
-        </div>
-      );
+    if (selectedMember === member) {
+      setFocusedMember(member);
+    } else {
+      setSelectedMember(member);
+      setZoom(1.5);
     }
+  };
 
-    const spouse = familyData.members.find(m => m.id === selectedMember.spouseId);
-    const children = familyData.members.filter(m => 
-      m.parentIds.includes(selectedMember.id) || (spouse && m.parentIds.includes(spouse.id))
+  const handleEdit = (member) => {
+    setEditingMember(member);
+  };
+
+  const handleSave = (editedMember) => {
+    const updatedMembers = familyData.members.map(member =>
+      member.id === editedMember.id ? editedMember : member
     );
+    familyData.members = updatedMembers;
+    setEditingMember(null);
+    setSelectedMember(editedMember);
+  };
+
+  const handleCancel = () => {
+    setEditingMember(null);
+  };
+
+  const handleReset = () => {
+    setSelectedMember(null);
+    setFocusedMember(null);
+    setZoom(1);
+  };
+
+  useEffect(() => {
+    if (selectedMember && treeRef.current) {
+      const element = document.getElementById(`member-${selectedMember.id}`);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+        });
+      }
+    }
+  }, [selectedMember]);
+
+  const renderFamilyMember = (member, isRoot = false) => {
+    const children = familyData.members.filter(m => m.parentIds.includes(member.id));
+    const spouse = familyData.members.find(m => m.id === member.spouseId);
+    const isSelected = selectedMember && (selectedMember.id === member.id || selectedMember.id === spouse?.id);
 
     return (
-      <div className="selected-family">
-        <div className="parent-container">
+      <motion.div 
+        className={`family-node ${isSelected ? 'selected' : ''} ${isRoot ? 'root' : ''}`}
+        key={member.id}
+        animate={{ scale: isSelected ? 1.2 : 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="member-container">
           <FamilyMember
-            member={selectedMember}
-            isLarge={true}
-            onClick={handleSpouseToggle}
+            member={member}
+            isLarge={isSelected}
+            onClick={() => handleMemberClick(member)}
+            onEdit={handleEdit}
           />
-          {showSpouse && spouse && (
+          {spouse && (
             <FamilyMember
               member={spouse}
-              isLarge={true}
-              onClick={handleSpouseToggle}
+              isLarge={isSelected}
+              onClick={() => handleMemberClick(spouse)}
+              onEdit={handleEdit}
             />
           )}
         </div>
         {children.length > 0 && (
-          <div className="children-container">
-            {children.map((child) => (
-              <FamilyMember
-                key={child.id}
-                member={child}
-                onClick={() => handleMemberClick(child)}
-              />
-            ))}
+          <div className={`children-container ${isSelected ? 'expanded' : ''}`}>
+            {children.map(child => renderFamilyMember(child))}
           </div>
         )}
-      </div>
+      </motion.div>
     );
   };
 
+  const rootMember = familyData.members.find(m => m.parentIds.length === 0);
+
   return (
-    <div className="family-tree">
-      <button className="reset-button" onClick={() => setSelectedMember(null)}>
+    <div className="family-tree" ref={treeRef}>
+      <button className="reset-button" onClick={handleReset}>
         Voltar para Árvore Completa
       </button>
-      {renderFamilyTree()}
+      <motion.div 
+        className="tree-container"
+        animate={{ scale: zoom }}
+        transition={{ duration: 0.5 }}
+      >
+        {renderFamilyMember(rootMember, true)}
+      </motion.div>
+      <AnimatePresence>
+        {focusedMember && (
+          <motion.div
+            className="focused-member"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <h2>{focusedMember.name}</h2>
+            <p>Data de Nascimento: {focusedMember.birthDate}</p>
+            <p>Profissão: {focusedMember.profession}</p>
+            {/* Adicione mais detalhes aqui */}
+            <button onClick={() => setFocusedMember(null)}>Voltar para a Árvore</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {editingMember && (
+        <EditMember
+          member={editingMember}
+          onSave={handleSave}
+          onCancel={handleCancel}
+        />
+      )}
     </div>
   );
 };

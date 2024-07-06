@@ -5,7 +5,7 @@ import './styles/App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Árvore Genealógica da Família</h1>
+      <h1>Árvore Genealógica Interativa da Família</h1>
       <FamilyTree />
     </div>
   );
