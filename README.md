@@ -7,7 +7,7 @@ Bem-vindo ao projeto Árvore Genealógica Interativa! Este é um aplicativo web 
 
 ## 👨‍💻 Criador
 
-**Wall Rodrigues**
+**Wall-AR**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Wall%20Rodrigues-blue.svg)](https://www.linkedin.com/in/wallace-rodrigues-96a7aa26a/)
 [![GitHub](https://img.shields.io/badge/GitHub-WallRodrigues-black.svg)](https://github.com/Wall-AR)
